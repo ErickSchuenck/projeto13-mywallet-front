@@ -1,8 +1,131 @@
+*{
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+:root {
+  --primaryColor: #8C11BE;
+  --secondaryColor: #ffffff;
+  --terciaryColor: #A328D6;;
+  --logoFont: 'Saira Stencil One', cursive;
+  --primaryFont: 'Raleway', sans-serif,cursive;
+}
+
+#root {
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--primaryFont);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primaryColor);
+}
+
+p {
+  margin: 0;
+}
+
+.logo{
+  font-family: var(--logoFont);
+  color: var(--secondaryColor);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.user-input{
+  width: 326px;
+  height: 58px;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 13px;
+}
+.user-input input{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  font-family: var(--primaryFont);
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.user-input input ::placeholder {
+  color: black;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
+
+.confirm-button{
+  width: 326px;
+  height: 58px;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 13px;
+}
+.confirm-button button{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--terciaryColor);
+  color: var(--secondaryColor);
+  font-family: var(--primaryFont);
+  font-size: 20px;
+  font-weight: 700, bold;
+  line-height: 23px;
+  letter-spacing: 0em;
+}
+
+.footer-text{
+  margin-left: 50%;
+  margin-right: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondaryColor);
+  cursor: pointer;
+  width: 234px;
+}
+
+.header{
+  width: 100%;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  
+}
+.header h1{
+  font-family: var(--primaryFont);
+  color: var(--secondaryColor);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: left;
 }
