@@ -9,7 +9,7 @@
   --secondaryColor: #ffffff;
   --terciaryColor: #A328D6;;
   --logoFont: 'Saira Stencil One', cursive;
-  --primaryFont: 'Raleway', sans-serif,cursive;
+  --primaryFont: 'Raleway', sans-serif, cursive;
 }
 
 #root {
@@ -114,11 +114,12 @@ textarea:focus, input:focus {
 }
 
 .header{
-  width: 100%;
   position: absolute;
   top: 25px;
   left: 25px;
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .header h1{
   font-family: var(--primaryFont);
@@ -128,4 +129,13 @@ textarea:focus, input:focus {
   line-height: 31px;
   letter-spacing: 0em;
   text-align: left;
+}
+
+.header ion-icon{
+  color: var(--secondaryColor);
+  font-size: 40px;
+  cursor: pointer;
+  position: fixed;
+  right: 24px;
+  top: 38px;
 }
