@@ -139,3 +139,25 @@ textarea:focus, input:focus {
   right: 24px;
   top: 38px;
 }
+
+.account-container{
+    width: 80%;
+    height: 60%;
+    background: var(--secondaryColor);
+    margin-left: 50%;
+    transform: translate(-50%,0);
+    border-radius: 5px;
+}
+
+.container{
+  width: 100vw;
+  height: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.report-transaction-button{
+  width: 155px;
+  height: 144px;
+  background-color: var(--terciaryColor);
+}
