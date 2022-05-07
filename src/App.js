@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from './LoginScreen'
 import RegisterScreen from './RegisterScreen'
 import MainScreen from './MainScreen'
+import EntradaScreen from './EntradaScreen'
+import SaidaScreen from './SaidaScreen'
 
 function App() {
   return (
@@ -11,8 +13,8 @@ function App() {
         <Route path='/' element={<LoginScreen />} />
         <Route path='/signUp' element={<RegisterScreen />} />
         <Route path='/main' element={<MainScreen />} />
-        <Route path='/profit' element={<RegisterScreen />} />
-        <Route path='/liability' element={<RegisterScreen />} />
+        <Route path='/entrada' element={<EntradaScreen />} />
+        <Route path='/saida' element={<SaidaScreen />} />
       </Routes>
     </BrowserRouter>
   );
