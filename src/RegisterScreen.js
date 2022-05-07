@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import axios from 'axios';
 
 
 export default function RegisterScreen() {
 
-  const URL = 'http://localhost:5000/messages';
+  const URL = 'http://localhost:5000/users';
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
   const [confirmPassword, setConfirmPassword] = useState(
     {
@@ -24,10 +26,22 @@ export default function RegisterScreen() {
 
   function registerUserData() {
     console.log(userData) // LEMBRE DE APAGAR ISSO
+    setLoading(true)
     if (userData.password !== userData.confirmPassword) {
       alert('Ops! Acho que ocorreu um erro na confirmação, por favor confira se as senhas estão iguais')
+      setLoading(false)
       return
     }
+    axios.post(URL, userData)
+      .then(
+        response => console.log(response),
+        navigate('/')
+      )
+      .catch(
+        error => console.log(error),
+        alert('Ops! algo deu errado, por favor revise as informações, se estiver tudo certo provavelmente é um erro do nosso servidor'),
+        setLoading(false)
+      )
   }
 
 

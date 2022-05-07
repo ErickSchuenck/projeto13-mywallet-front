@@ -32,7 +32,7 @@ export default function LoginScreen() {
       .then(response => {
         console.log('response', response)
         setData(response.data);
-        // localStorage.setItem('login', JSON.stringify(response.data.token))
+        localStorage.setItem('token', JSON.stringify(response.data.token))
         navigate('/main')
       })
 
@@ -69,11 +69,8 @@ export default function LoginScreen() {
           }}
         />
       </div>
-      <div className='confirm-button'>
-        <button onClick={() => enterApp()}>
-          <p>Entrar</p>
-        </button>
-      </div>
+      <ConfirmButton enterApp={enterApp} loading={loading} />
+
       <div className='footer-text'>
         <Link to={'/signUp'}>
           <p>Primeira vez? Cadastre-se!</p>
@@ -81,4 +78,20 @@ export default function LoginScreen() {
       </div>
     </>
   )
+}
+
+function ConfirmButton(props) {
+  if (props.loading === true) {
+    return (
+      <div className='loading' />
+    )
+  } else {
+    return (
+      <div className='confirm-button'>
+        <button onClick={props.enterApp}>
+          <p>Entrar</p>
+        </button>
+      </div>
+    )
+  }
 }
