@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 export default function LoginScreen() {
   return (
@@ -18,7 +19,9 @@ export default function LoginScreen() {
         </button>
       </div>
       <div className='footer-text'>
-        <p>Primeira vez? Cadastre-se!</p>
+        <Link to={'/signUp'}>
+          <p>Primeira vez? Cadastre-se!</p>
+        </Link>
       </div>
     </>
   )

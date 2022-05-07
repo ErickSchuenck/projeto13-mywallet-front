@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function RegisterScreen() {
   return (
@@ -24,7 +25,9 @@ export default function RegisterScreen() {
         </button>
       </div>
       <div className='footer-text'>
-        <p>Já tem uma conta? Entre agora!</p>
+        <Link to={'/'}>
+          <p>Já tem uma conta? Entre agora!</p>
+        </Link>
       </div>
     </>
   )
