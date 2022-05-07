@@ -1,7 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+
 
 export default function RegisterScreen() {
+
+  const navigate = useNavigate()
+  const [userData, setUserData] = useState(
+    {
+      email: '',
+      name: '',
+      password: '',
+      confirmPassword: '',
+    }
+  )
+
   return (
     <>
       <div className='logo'>

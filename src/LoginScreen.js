@@ -8,6 +8,7 @@ export default function LoginScreen() {
 
   const URL = ''
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
 
   const [login, setLogin] = useState(
     {
@@ -20,13 +21,13 @@ export default function LoginScreen() {
     {
       email: '',
       name: '',
-      transactions: '',
+      transactions: [],
       token: '',
     }
   )
 
   function enterApp() {
-    // setLoading(true)
+    setLoading(true)
     axios.post(URL, login)
       .then(response => {
         console.log('response', response)
@@ -36,7 +37,7 @@ export default function LoginScreen() {
       })
 
       .catch(error => {
-        // setLoading(false)
+        setLoading(false)
         console.log(error);
         alert("Erro de login, favor checar novamente os dados. Se não possui uma conta, experimente se cadastrar antes!");
       }
