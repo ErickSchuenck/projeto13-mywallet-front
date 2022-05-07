@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 export default function LoginScreen() {
 
-  const URL = ''
+  const URL = 'http://localhost:5000/messages'
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
 
