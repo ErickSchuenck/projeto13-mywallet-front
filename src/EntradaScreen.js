@@ -6,16 +6,18 @@ export default function EntradaScreen() {
       <div className='header'>
         <h1>Nova Entrada</h1>
       </div>
-      <div className='user-input'>
-        <input type={'text'} placeholder={'Valor'} />
-      </div>
-      <div className='user-input'>
-        <input type={'text'} placeholder={'Descrição'} />
-      </div>
-      <div className='confirm-button'>
-        <button>
-          <p>Salvar Entrada</p>
-        </button>
+      <div className='value-container'>
+        <div className='value-input'>
+          <input type={'text'} placeholder={'Valor'} />
+        </div>
+        <div className='value-input'>
+          <input type={'text'} placeholder={'Descrição'} />
+        </div>
+        <div className='value-confirm-button'>
+          <button>
+            <p>Salvar Entrada</p>
+          </button>
+        </div>
       </div>
     </>
   )
