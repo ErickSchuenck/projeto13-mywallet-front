@@ -61,8 +61,9 @@ export default function RegisterScreen() {
         <input
           type={'text'}
           placeholder={'Nome'}
-          onChange={(event) => setUserData({ ...userData, name: event.target.value })}
           value={userData.name}
+          onChange={(event) => setUserData({ ...userData, name: event.target.value })}
+
         />
       </div>
 
@@ -70,8 +71,9 @@ export default function RegisterScreen() {
         <input
           type={'text'}
           placeholder={'E-mail'}
-          onChange={(event) => setUserData({ ...userData, email: event.target.value })}
           value={userData.email}
+          onChange={(event) => setUserData({ ...userData, email: event.target.value })}
+
         />
       </div>
 

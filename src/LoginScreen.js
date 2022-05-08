@@ -33,7 +33,8 @@ export default function LoginScreen() {
         console.log('response', response)
         setData(response.data);
         localStorage.setItem('token', JSON.stringify(response.data.token))
-        // navigate('/main')
+        localStorage.setItem('data', JSON.stringify(data))
+        navigate('/main')
       })
 
       .catch(error => {
@@ -55,17 +56,17 @@ export default function LoginScreen() {
           placeholder={'E-mail'}
           value={login.email}
           onChange={(event) => {
-            setLogin({ login, email: event.target.value })
+            setLogin({ ...login, email: event.target.value })
           }}
         />
       </div>
       <div className='user-input'>
         <input
-          type={'text'}
+          type={'password'}
           placeholder={'Senha'}
           value={login.password}
           onChange={(event) => {
-            setLogin({ login, password: event.target.value })
+            setLogin({ ...login, password: event.target.value })
           }}
         />
       </div>
