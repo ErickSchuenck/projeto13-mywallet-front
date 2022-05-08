@@ -34,13 +34,20 @@ export default function RegisterScreen() {
     }
     axios.post(URL, userData)
       .then(
-        response => console.log(response),
-        navigate('/')
+        response => {
+          console.log('sucesso');
+          console.log(response);
+          navigate('/')
+        }
       )
       .catch(
-        error => console.log(error),
-        alert('Ops! algo deu errado, por favor revise as informações, se estiver tudo certo provavelmente é um erro do nosso servidor'),
-        setLoading(false)
+
+        error => {
+          console.log(error);
+          console.log('erro');
+          alert('Ops! algo deu errado, por favor revise as informações, se estiver tudo certo provavelmente é um erro do nosso servidor');
+          setLoading(false)
+        }
       )
   }
 

@@ -1,6 +1,95 @@
 import React from 'react'
 
+
+
 export default function MainScreen() {
+  const report = [
+    {
+      user: 'Erig',
+      type: 'entrada',
+      value: '200,00',
+      title: 'Jogo do bicho',
+      date: '06/05'
+    },
+    {
+      user: 'Erig',
+      type: 'entrada',
+      value: '220,00',
+      title: 'Roubei o dinheiro do kaique',
+      date: '04/05'
+    },
+    {
+      user: 'Erig',
+      type: 'saida',
+      value: '1000,00',
+      title: 'Parcela do agiota',
+      date: '02/05'
+    },
+    {
+      user: 'Erig',
+      type: 'entrada',
+      value: '200,00',
+      title: 'Jogo do bicho',
+      date: '06/05'
+    },
+    {
+      user: 'Erig',
+      type: 'entrada',
+      value: '220,00',
+      title: 'Roubei o dinheiro do kaique',
+      date: '04/05'
+    },
+    {
+      user: 'Erig',
+      type: 'saida',
+      value: '1000,00',
+      title: 'Parcela do agiota',
+      date: '02/05'
+    },
+    {
+      user: 'Erig',
+      type: 'entrada',
+      value: '200,00',
+      title: 'Jogo do bicho',
+      date: '06/05'
+    },
+    {
+      user: 'Erig',
+      type: 'entrada',
+      value: '220,00',
+      title: 'Roubei o dinheiro do kaique',
+      date: '04/05'
+    },
+    {
+      user: 'Erig',
+      type: 'saida',
+      value: '1000,00',
+      title: 'Parcela do agiota',
+      date: '02/05'
+    },
+    {
+      user: 'Erig',
+      type: 'entrada',
+      value: '200,00',
+      title: 'Jogo do bicho',
+      date: '06/05'
+    },
+    {
+      user: 'Erig',
+      type: 'entrada',
+      value: '220,00',
+      title: 'Roubei o dinheiro do kaique',
+      date: '04/05'
+    },
+    {
+      user: 'Erig',
+      type: 'saida',
+      value: '1000,00',
+      title: 'Parcela do agiota',
+      date: '02/05'
+    }
+  ]
+
   return (
     <>
       <div className='container'>
@@ -9,6 +98,54 @@ export default function MainScreen() {
           <ion-icon name="exit-outline"></ion-icon>
         </div>
         <div className='account-container'>
+          {report.map((report) => {
+            if (report.type === 'entrada') {
+              return (
+                <div className='container-text' key={report.title}>
+                  <div className='container-text-date' key={report.title}>
+                    <p>
+                      {report.date}
+                    </p>
+                  </div>
+                  <div className='container-text-title' key={report.title}>
+                    <p>
+                      {report.title}
+                    </p>
+                  </div>
+                  <div className='container-text-value red' key={report.value}>
+                    <p>
+                      {report.value}
+                    </p>
+                  </div>
+                </div>)
+            } else {
+              return (
+                <div className='container-text' key={report.title}>
+                  <div className='container-text-date' key={report.title}>
+                    <p>
+                      {report.date}
+                    </p>
+                  </div>
+                  <div className='container-text-title' key={report.title}>
+                    <p>
+                      {report.title}
+                    </p>
+                  </div>
+                  <div className='container-text-value green' key={report.value}>
+                    <p>
+                      {report.value}
+                    </p>
+                  </div>
+                </div>
+              )
+            }
+
+          }
+          )}
+          <div className='total'>
+            <p>Saldo</p>
+            <p className='green'>2200</p>
+          </div>
         </div>
         <div className='report-transaction-button' id='entrada'>
           <ion-icon name="add-circle-outline" ></ion-icon>

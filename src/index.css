@@ -8,6 +8,8 @@
   --primaryColor: #8C11BE;
   --secondaryColor: #ffffff;
   --terciaryColor: #A328D6;;
+  --red: red;
+  --green: rgb(37, 189, 37);
   --logoFont: 'Saira Stencil One', cursive;
   --primaryFont: 'Raleway', sans-serif, cursive;
 }
@@ -66,7 +68,7 @@ p {
   border: none;
   font-family: var(--primaryFont);
   padding: 15px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   line-height: 23px;
   letter-spacing: 0em;
@@ -169,6 +171,7 @@ textarea:focus, input:focus {
     margin-left: 50%;
     transform: translate(-50%,0);
     border-radius: 5px;
+    overflow-y: scroll;
 }
 
 .container{
@@ -225,6 +228,45 @@ a:visited {
   border-top-color: var(--secondaryColor);
   border-radius: 50%;
   margin: 15px;
+}
+.container-text{
+  margin: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  position: relative;
+}
+.container-text-date{
+  font-size: 16px;
+  color: grey;
+}
+.container-text-title {
+  margin-left: 5px;
+  font-size: 16px;
+  max-width: 180px;
+}
+.container-text-value {
+  position: absolute;
+  right: 0;
+}
+.red{
+  color: var(--red);
+}
+.green{
+  color: var(--green);
+}
+.total{
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+  width: 300px;
+}
+.total p{
+  font-family: var(--primaryFont);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
 }
 @keyframes is-rotating {
   to {

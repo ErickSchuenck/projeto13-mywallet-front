@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 export default function LoginScreen() {
 
-  const URL = 'http://localhost:5000/messages'
+  const URL = 'http://localhost:5000/login'
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
 
@@ -33,7 +33,7 @@ export default function LoginScreen() {
         console.log('response', response)
         setData(response.data);
         localStorage.setItem('token', JSON.stringify(response.data.token))
-        navigate('/main')
+        // navigate('/main')
       })
 
       .catch(error => {
