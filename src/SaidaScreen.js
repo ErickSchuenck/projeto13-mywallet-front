@@ -1,13 +1,30 @@
+import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function SaidaScreen() {
+
+  const URL = 'http://localhost:5000/withdraw'
+  const navigate = useNavigate()
 
   const [saida, setSaida] = useState({
     value: 0,
     type: 'saida',
     title: '',
   })
+
+  function send() {
+    axios.post(URL, saida)
+      .then(response => {
+        console.log('response', response)
+        navigate('/main')
+      })
+      .catch(error => {
+        console.log(error)
+        alert(error)
+      })
+  }
 
   return (
     <>
@@ -34,7 +51,7 @@ export default function SaidaScreen() {
           />
         </div>
         <div className='value-confirm-button'>
-          <button onClick={() => console.log(saida)}>
+          <button onClick={() => send()}>
             <p>Salvar Saida</p>
           </button>
         </div>
