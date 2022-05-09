@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function MainScreen() {
+  console.log('TOKEN AQUI:::', localStorage)
   const navigate = useNavigate()
 
 
@@ -77,21 +78,21 @@ export default function MainScreen() {
           />
         </div>
         <div className='account-container'>
-          {report.map((report) => {
-            if (report.type === 'entrada') {
+          {report.map((report, i) => {
+            if (report.type !== 'entrada') {
               return (
-                <div className='container-text' key={report.title}>
-                  <div className='container-text-date' key={report.title}>
+                <div className='container-text' key={i}>
+                  <div className='container-text-date' key={1}>
                     <p>
                       {report.date}
                     </p>
                   </div>
-                  <div className='container-text-title' key={report.title}>
+                  <div className='container-text-title' key={2}>
                     <p>
                       {report.title}
                     </p>
                   </div>
-                  <div className='container-text-value red' key={report.value}>
+                  <div className='container-text-value red' key={3}>
                     <p>
                       {report.value}
                     </p>
@@ -99,18 +100,18 @@ export default function MainScreen() {
                 </div>)
             } else {
               return (
-                <div className='container-text' key={report.title}>
-                  <div className='container-text-date' key={report.title}>
+                <div className='container-text' key={i}>
+                  <div className='container-text-date' key={1}>
                     <p>
                       {report.date}
                     </p>
                   </div>
-                  <div className='container-text-title' key={report.title}>
+                  <div className='container-text-title' key={2}>
                     <p>
                       {report.title}
                     </p>
                   </div>
-                  <div className='container-text-value green' key={report.value}>
+                  <div className='container-text-value green' key={3}>
                     <p>
                       {report.value}
                     </p>

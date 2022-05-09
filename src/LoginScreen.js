@@ -17,23 +17,13 @@ export default function LoginScreen() {
     }
   )
 
-  const [data, setData] = useState(
-    {
-      email: '',
-      name: '',
-      transactions: [],
-      token: '',
-    }
-  )
-
   function enterApp() {
     setLoading(true)
     axios.post(URL, login)
       .then(response => {
         console.log('response', response)
-        setData(response.data);
-        localStorage.setItem('token', JSON.stringify(response.data.token))
-        localStorage.setItem('data', JSON.stringify(data))
+        localStorage.setItem('data', JSON.stringify(response.data))
+        console.log(response.data)
         navigate('/main')
       })
 
