@@ -11,80 +11,30 @@ export default function MainScreen() {
   const URL = 'http://localhost:5000/getFinances';
   const userInfos = JSON.parse(localStorage.getItem('data'))
   const [username, setUsername] = useState('')
-  // const [report, setReport] = useState([]);
-  useEffect(() => { displayFinances() })
+  const [total, setTotal] = useState(0)
+  const [report, setReport] = useState([]);
+  useEffect(() => { displayFinances() }, [])
 
   function displayFinances() {
     console.log(userInfos)
-    const promise = axios.get(URL, userInfos.token)
+    const { token } = userInfos
+    const promise = axios.get(URL, { headers: { token } })
     promise.then((response) => {
       const { data } = response;
-      setUsername('pegar da api');
-      // setReport(data.userRegisters);
+      setUsername(data.userFinances.name);
+      setReport(data.userFinances.finances);
+      setTotal(data.userFinances.finances.reduce((total, item) => {
+        let finalNumber;
+        if (item.type === 'entrada') { finalNumber = total + item.value }
+        if (item.type === 'saida') { finalNumber = total - item.value }
+        return finalNumber
+      }, 0))
     });
     promise.catch((err) => {
-      alert(err.response.data.message);
+      alert(err);
     });
   }
 
-  const report = [
-    {
-      user: 'Erig',
-      type: 'entrada',
-      value: 200.00,
-      title: 'Jogo do bicho',
-      date: '06/05'
-    },
-    {
-      user: 'Erig',
-      type: 'entrada',
-      value: 220.00,
-      title: 'Roubei o dinheiro do kaique',
-      date: '04/05'
-    },
-    {
-      user: 'Erig',
-      type: 'saida',
-      value: 1000.00,
-      title: 'Parcela do agiota',
-      date: '02/05'
-    },
-    {
-      user: 'Erig',
-      type: 'entrada',
-      value: 200.00,
-      title: 'Jogo do bicho',
-      date: '06/05'
-    },
-    {
-      user: 'Erig',
-      type: 'entrada',
-      value: 220.00,
-      title: 'Roubei o dinheiro do kaique',
-      date: '04/05'
-    },
-    {
-      user: 'Erig',
-      type: 'saida',
-      value: 1000.00,
-      title: 'Parcela do agiota',
-      date: '02/05'
-    },
-    {
-      user: 'Erig',
-      type: 'entrada',
-      value: 200.00,
-      title: 'Jogo do bicho',
-      date: '06/05'
-    },
-    {
-      user: 'Erig',
-      type: 'entrada',
-      value: 220.00,
-      title: 'Roubei o dinheiro do kaique',
-      date: '04/05'
-    }
-  ]
 
   return (
     <>
@@ -143,15 +93,7 @@ export default function MainScreen() {
           )}
           <div className='total'>
             <p>Saldo</p>
-            <p className='green'>{
-              report.map((report) => {
-                let total = 0;
-                if (typeof report.value == 'number') {
-                  total = total + parseFloat(report.value);
-                }
-                return total
-              })
-            }</p>
+            <p className={`${total >= 0 ? 'green' : 'red'}`}>{total}</p>
           </div>
         </div>
         <Link to={'/entrada'}>

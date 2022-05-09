@@ -20,6 +20,7 @@ export default function EntradaScreen() {
   function send() {
     if (typeof parseInt(entrada.value) === 'number') {
       const payload = { ...entrada, value: parseFloat(entrada.value), token: userInfos.token }
+      console.log(payload)
       axios.post(URL, payload)
         .then(response => {
           console.log('response', response)

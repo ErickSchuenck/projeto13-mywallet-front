@@ -21,10 +21,13 @@ export default function LoginScreen() {
     setLoading(true)
     axios.post(URL, login)
       .then(response => {
-        console.log('response', response)
-        localStorage.setItem('data', JSON.stringify(response.data))
-        console.log(response.data)
-        navigate('/main')
+        if (response === 'Incorrect password') {
+          alert('incorrect password!')
+        } else {
+          localStorage.setItem('data', JSON.stringify(response.data))
+          console.log(response.data)
+          navigate('/main')
+        }
       })
 
       .catch(error => {

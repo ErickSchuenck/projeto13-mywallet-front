@@ -25,7 +25,6 @@ export default function RegisterScreen() {
   );
 
   function registerUserData() {
-    console.log(userData) // LEMBRE DE APAGAR ISSO
     setLoading(true)
     if (userData.password !== userData.confirmPassword) {
       alert('Ops! Acho que ocorreu um erro na confirmação, por favor confira se as senhas estão iguais')
