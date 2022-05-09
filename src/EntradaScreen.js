@@ -7,6 +7,7 @@ export default function EntradaScreen() {
 
   const URL = 'http://localhost:5000/deposit'
   const navigate = useNavigate()
+  const userInfos = JSON.parse(localStorage.getItem('data'))
 
   const [entrada, setEntrada] = useState({
     value: 0,
@@ -15,7 +16,10 @@ export default function EntradaScreen() {
   })
 
   function send() {
-    axios.post(URL, entrada)
+    console.log(userInfos)
+    const payload = { ...entrada, token: userInfos.token }
+    console.log('payload aqui::::', payload)
+    axios.post(URL, payload)
       .then(response => {
         console.log('response', response)
         navigate('/main')

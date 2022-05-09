@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function MainScreen() {
-  console.log('TOKEN AQUI:::', localStorage)
+
   const navigate = useNavigate()
 
 
