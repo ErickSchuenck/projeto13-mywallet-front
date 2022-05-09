@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function EntradaScreen() {
-
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth() + 1}`;
   const URL = 'http://localhost:5000/deposit'
   const navigate = useNavigate()
   const userInfos = JSON.parse(localStorage.getItem('data'))
@@ -13,21 +14,25 @@ export default function EntradaScreen() {
     value: 0,
     type: 'entrada',
     title: '',
+    date: date,
   })
 
   function send() {
-    console.log(userInfos)
-    const payload = { ...entrada, token: userInfos.token }
-    console.log('payload aqui::::', payload)
-    axios.post(URL, payload)
-      .then(response => {
-        console.log('response', response)
-        navigate('/main')
-      })
-      .catch(error => {
-        console.log(error)
-        alert(error)
-      })
+    if (typeof parseInt(entrada.value) === 'number') {
+      const payload = { ...entrada, value: parseFloat(entrada.value), token: userInfos.token }
+      axios.post(URL, payload)
+        .then(response => {
+          console.log('response', response)
+          navigate('/main')
+        })
+        .catch(error => {
+          console.log(error)
+          alert(error)
+        })
+    } else {
+      alert('Tenha certeza que o valor digitado é um numero que separa os reais dos centavos por .')
+      console.log(typeof (entrada.value))
+    }
   }
 
   return (
@@ -38,7 +43,7 @@ export default function EntradaScreen() {
       <div className='value-container'>
         <div className='value-input'>
           <input
-            type={'text'}
+            type={'number'}
             placeholder={'Valor'}
             onChange={(event) => {
               setEntrada({ ...entrada, value: event.target.value })
