@@ -7,6 +7,7 @@ export default function SaidaScreen() {
 
   const URL = 'http://localhost:5000/withdraw'
   const navigate = useNavigate()
+  const userInfos = JSON.parse(localStorage.getItem('data'))
 
   const [saida, setSaida] = useState({
     value: 0,
@@ -15,7 +16,8 @@ export default function SaidaScreen() {
   })
 
   function send() {
-    axios.post(URL, saida)
+    const payload = { ...saida, token: userInfos.token }
+    axios.post(URL, payload)
       .then(response => {
         console.log('response', response)
         navigate('/main')
